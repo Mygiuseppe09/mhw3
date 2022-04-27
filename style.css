@@ -1,0 +1,398 @@
+/********************************* STILI BASE *******************************/
+
+html { font-size: 12px;} /* userò il "rem" */
+
+body {
+    font-family: Arial, serif;
+    margin: 0;
+}
+
+
+.big_text_style {
+    font-family: 'David Libre', serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+}
+
+.content_text_style {
+    font-family: 'Harmattan', sans-serif;
+    font-size: 1.7rem;
+    font-weight: normal;
+    color: black;
+    line-height: 1.5;
+}
+
+.sub_content_text_style {
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
+    font-weight: lighter;
+    color: black;
+    line-height: 1.5;
+}
+
+.footer_text_style {
+    padding: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: white;
+}
+
+.names_text_style {
+    font-family: 'Courgette', cursive;
+    font-size: 2.5rem;
+}
+
+.highlight {
+    display: inline-block;
+    background-color: yellow;
+    line-height: 1;
+}
+
+/********************************* STILI 'AVANZATI' COMUNI *******************************/
+
+#close_button {
+    position: fixed;
+    top:10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    z-index: 3;
+}
+
+.icon { width: 30px; }
+
+.search_bar {
+    max-width: 50vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+}
+
+.input_bar {width: 40vw;}
+
+@media (max-width: 450px) {
+    .input_bar {width: 30vw;}
+}
+
+.search_button {
+    background-color: #76c2af;
+    border: 3px solid white;
+    color: white;
+    border-radius: 50px;
+}
+
+.full_modal_view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+
+    overflow-y: scroll;
+    z-index: 3;
+}
+
+
+.full_modal_view div.intro {
+    border: 4px solid #76c2af;
+    border-radius: 50px;
+    margin: 10px auto;
+    text-align: center;
+    width: 70vw;
+    padding: 10px;
+}
+
+.full_modal_view .intro .content_text_style,
+.full_modal_view .intro .sub_content_text_style,
+.full_modal_view .intro .big_text_style {margin: 7px auto;}
+
+.library {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+@media (max-width: 450px) {
+    /* adattiamo la visualizzazione dei "content-items" su mobile */
+    .library div.content_item {
+        width: 90vw;
+    }
+}
+
+.results_text {text-align: center;}
+
+/************************************* HEADER *************************************/
+
+header {
+    background-image: url(images/header_background.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    position: relative; /* in modo da giocare con l'absolute di cio che sta dentro */
+    border: 5px solid black;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    text-align: center;
+}
+
+#overlay {
+    position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+
+/* poichè lo sfondo sarà con sfumatura scura */
+header .big_text_style {
+    color: white;
+    z-index: 1;
+}
+
+#realized_by {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    margin-top: -70px;
+    margin-bottom: 30px;
+}
+
+#realized_by p.names_text_style { margin-bottom: 10px; }
+
+#profile_photo {
+    width: 120px;
+    height: 120px;
+    z-index: 1;
+    border: 5px solid darkcyan;
+    background-image: url(images/me.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    border-radius: 100%;
+}
+
+/******************************** CONTENTS ***********************************/
+
+#contents {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.content_item {margin: 30px 10px;}
+
+.sub_content_item {margin: 20px 10px;}
+
+.image_container {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+}
+
+#frutta_secca_photo { background-image: url(images/frutta_secca.jpg); }
+#cioccolato_photo { background-image: url(images/cioccolato.jpg); }
+#uova_photo { background-image: url(images/uova.jpg); }
+#spinaci_photo { background-image: url(images/spinaci.webp) }
+#pesce_photo { background-image: url(images/PESCE.jpg) }
+
+@media (max-width: 500px) {
+    .image_container {
+        height: 200px;
+    }
+}
+
+/******************************* Recipe Search API ****************************/
+
+img#inform_the_user {
+    position: fixed;
+        bottom: 10px;
+        left: 10px;
+    height: 100px;
+}
+
+@media (max-width: 500px) {img#inform_the_user {height: 50px;}}
+
+#API_Information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 10px solid #76c2af;
+    border-radius: 100px;
+    background-color: white;
+    z-index: 2;
+    width: 75%;
+    position: fixed;
+        bottom: 80px;
+        left: 10%;
+    height: 300px;
+
+}
+
+#Recipe_Search_API_information p {
+    margin: 20px 60px;
+    text-align: center;
+}
+
+#Recipe_Search_API_information p.big_text_style {font-size: 2.5rem;}
+
+@media (max-width: 700px) {
+    #API_Information {
+        border-radius: 80px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 450px) {
+    #Recipe_Search_API_information p.big_text_style { font-size: 1.7rem; }
+    #API_Information { height: 400px; }
+}
+
+/********************************** Google Books API *************************************/
+
+img#open_modal_book {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    height: 100px;
+}
+
+@media (max-width: 500px) {img#open_modal_book {height: 50px;}}
+
+#book_library .image_container {
+    position: relative;
+    height: 60px;
+    background-image: url(icons/download_banner.jpg);
+}
+
+#book_library a {
+    color: transparent;
+    background-color: transparent;
+    font-size: 40px;
+    position: absolute;
+        bottom: 0;
+        left: 0;
+}
+
+#book_library .content_text_style {text-align: center;}
+#book_library div.content_item {width: 250px;}
+
+
+/************************************ SPOTIFY API **************************************/
+
+img#open_modal_spotify {
+    position: fixed;
+    bottom: 120px;
+    right: 10px;
+    height: 100px;
+}
+
+@media (max-width: 500px) {
+    img#open_modal_spotify {
+        height: 50px;
+        bottom: 70px;
+    }
+}
+
+.library .image_container {
+    position: relative;
+    height: 200px;
+    background-image: url(icons/play_bar.jpg);
+}
+
+.library a {
+    color: transparent;
+    background-color: transparent;
+    font-size: 20px;
+    position: absolute;
+        bottom: 21px;
+        left: 135px;
+}
+
+#result_text {
+    width: 100%;
+    text-align: center;
+}
+/******************************** RECIPE MODAL VIEW **********************************/
+
+#recipe_modal_view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    overflow-y: scroll;
+    background-color: white;
+    z-index: 2;
+}
+
+.library .content_item {
+    border: 4px solid #76c2af;
+    border-radius: 50px;
+    margin: 10px 10px;
+}
+
+.library img.sub_content_item {
+    display: block;
+    margin: 0 auto;
+}
+
+.library p.sub_content_item.big_text_style {
+    text-align: center;
+    max-width: 300px;
+}
+
+#recipe_modal_view ul { max-width: 280px; }
+
+
+/*********************************** FOOTER ***********************************/
+
+footer {
+    padding: 10px 5px;
+    background-color: #004646;
+    margin-bottom: 120px;
+}
+
+/* ||  ABOUT ME  ||  CATEGORIES || */
+#footer_flex_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+#copyright {
+    text-align: center;
+    height: 50px;
+}
+
+
+@media (max-width: 500px) {
+    #footer_flex_container { display: block; }
+    .footer_text_style { font-size: 1.2rem; }
+    footer { margin-bottom: 120px; }
+}
+
+/***************************** "JAVASCRIPT" ***********************************/
+.hidden { display: none !important; }
+.no_scroll { overflow: hidden !important; }
+
